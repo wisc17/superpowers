@@ -1,9 +1,9 @@
 {
-  "name": "superpowers-extended-cc-marketplace",
+  "name": "superpowers-extended-cc-wisc17",
   "description": "Marketplace for Superpowers Extended CC - Claude Code-specific enhancements",
   "owner": {
-    "name": "pcvelz",
-    "email": "pcvelz@users.noreply.github.com"
+    "name": "wisc17",
+    "email": "wisc17@users.noreply.github.com"
   },
   "plugins": [
     {
@@ -12,8 +12,8 @@
       "version": "5.5.0",
       "source": "./",
       "author": {
-        "name": "pcvelz",
-        "email": "pcvelz@users.noreply.github.com"
+        "name": "wisc17",
+        "email": "wisc17@users.noreply.github.com"
       }
     }
   ]
