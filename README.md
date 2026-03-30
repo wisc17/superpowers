@@ -18,3 +18,7 @@ Upstream documentation (installation, the workflow guide, the skills library, th
 ### Fork packaging
 
 Updated the marketplace and plugin manifest for this fork.
+
+### Design docs aren't committed to git
+
+Brainstorming writes the spec as an untracked working file instead of committing it.
