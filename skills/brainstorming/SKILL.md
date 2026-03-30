@@ -243,7 +243,8 @@ or two each and goes straight to your human partner, without the
 builder check.
 
 **Where it goes:** in a software repo,
-`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, committed.
+`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`. Do NOT commit
+it to git — leave it as an untracked working file.
 Otherwise, pick a sensible place and say where. Your human partner's
 preferences override both.
 
