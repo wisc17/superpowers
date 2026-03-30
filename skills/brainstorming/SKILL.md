@@ -114,6 +114,7 @@ digraph brainstorming {
   - (User preferences for spec location override this default)
 - Use elements-of-style:writing-clearly-and-concisely skill if available
 - Commit the design document to git
+  - (Run `git check-ignore <path>` first — if the path is ignored, skip the commit silently. Never force-add ignored files.)
 
 **Spec Self-Review:**
 After writing the spec document, look at it with fresh eyes:
