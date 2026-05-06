@@ -7,9 +7,9 @@ Part of superpowers-extended-cc:subagent-driven-development.
 **NEEDS_CONTEXT:** The implementer needs information that wasn't provided. Provide the missing context and re-dispatch.
 
 **BLOCKED:** The implementer cannot complete the task. Assess the blocker:
-1. If it's a context problem, provide more context and re-dispatch with the same model
-2. If the task requires more reasoning, re-dispatch with a more capable model
+1. If it's a context problem, provide more context and re-dispatch
+2. If the task requires more reasoning, re-dispatch with a sharper brief — tighter scope, the missing context, a worked example
 3. If the task is too large, break it into smaller pieces
 4. If the plan itself is wrong, rule on the correction, ledger it, and re-dispatch with the ruling carried in the dispatch
 
-**Never** ignore an escalation or force the same model to retry without changes. If the implementer said it's stuck, something needs to change.
+**Never** ignore an escalation or re-dispatch without changing anything. If the implementer said it's stuck, something needs to change.
