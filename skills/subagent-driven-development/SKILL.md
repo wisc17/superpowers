@@ -95,18 +95,20 @@ When dispatching an implementer subagent:
 
 ## Model Selection
 
-Use the least powerful model that can handle each role to conserve cost and increase speed.
+**Always pass the `model` parameter explicitly** when dispatching subagents via the Agent tool.
 
-**Mechanical implementation tasks** (isolated functions, clear specs, 1-2 files): use a fast, cheap model. Most implementation tasks are mechanical when the plan is well-specified.
+**NEVER use the Haiku model** quality floors matter more than cost savings.
 
-**Integration and judgment tasks** (multi-file coordination, pattern matching, debugging): use a standard model.
+**Mechanical implementation tasks** (isolated functions, clear specs, 1-2 files): use the Sonnet model. Most implementation tasks are mechanical when the plan is well-specified.
 
-**Architecture, design, and review tasks**: use the most capable available model.
+**Integration and judgment tasks** (multi-file coordination, pattern matching, debugging): use the Opus model the user has selected..
+**Architecture, design, and review tasks** use the Opus model the user has selected..
+**Other tasks** use the Opus model the user has selected.
 
 **Task complexity signals:**
-- Touches 1-2 files with a complete spec → cheap model
-- Touches multiple files with integration concerns → standard model
-- Requires design judgment or broad codebase understanding → most capable model
+- Touches 1-2 files with a complete spec → Sonnet model
+- Touches multiple files with integration concerns → Opus model
+- Requires design judgment or broad codebase understanding → Opus model
 
 ## Handling Implementer Status
 
