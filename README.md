@@ -22,3 +22,7 @@ Updated the marketplace and plugin manifest for this fork.
 ### Design docs aren't committed to git
 
 Brainstorming writes the spec as an untracked working file instead of committing it.
+
+### My selected model is always respected
+
+Subagents never get silently downgraded to a cheaper/faster model to save cost.
