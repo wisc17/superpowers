@@ -1,5 +1,20 @@
 # Superpowers Extended for Claude Code
 
+> ## ⚠️ This Is a Personal Fork (wisc17 changes)
+>
+> This copy adapts the default skills to fit my own workflow and preferences.
+> The goal is to keep the agent helpful but unobtrusive — fewer unnecessary prompts, fewer questions on how to proceed, more control left in my hands.
+>
+> - **No automatic "finish your branch" menu.** When a plan finishes, Claude just reports what it did and hands control back to me instead of prompting to merge / open a PR / clean up worktrees.
+> - **No nagging to install the user-gate hook.** Removed a background check that asked for permission and nudged me to enable an enforcement hook I don't use.
+> - **My selected model is always respected.** Subagents never get silently downgraded to a cheaper/faster model to save cost.
+> - **Design documents can't be force-committed.** Added a guard so gitignored design docs aren't accidentally committed.
+> - **Fork packaging.** Updated the marketplace and plugin manifest for this fork.
+>
+> Everything else works exactly like upstream Superpowers Extended below.
+
+---
+
 A community-maintained fork of [obra/superpowers](https://github.com/obra/superpowers) specifically for Claude Code users.
 
 ## Why This Fork Exists
