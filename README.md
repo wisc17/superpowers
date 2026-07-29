@@ -38,3 +38,7 @@ Deliberately **not** parked: **requesting-code-review**. Subagent-driven-develop
 ### Parked: dispatching-parallel-agents
 
 Nothing routed to it — subagent-driven-development has its own Bounded Parallel Dispatch section.
+
+### Parked: receiving-code-review
+
+No skill, hook, command, doc, or test referenced it.
