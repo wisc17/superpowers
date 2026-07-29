@@ -34,3 +34,7 @@ Skills serving flows this fork doesn't run are **parked**: `SKILL.md` is renamed
 using-superpowers itself stays fully active: the SessionStart hook injects its complete text every session. Parking only stops it being *double*-registered as an invocable skill.
 
 Deliberately **not** parked: **requesting-code-review**. Subagent-driven-development dispatches the final whole-branch review straight from its `code-reviewer.md` template by relative path, so the skill and that file both stay live.
+
+### Parked: dispatching-parallel-agents
+
+Nothing routed to it — subagent-driven-development has its own Bounded Parallel Dispatch section.

@@ -67,7 +67,7 @@ fi
 # 5. Native task sections exist in key skills
 echo "Test 5: Native task integration present..."
 NATIVE_FAIL=0
-for skill in writing-plans brainstorming dispatching-parallel-agents; do
+for skill in writing-plans brainstorming; do
     if ! grep -q "Native Task" "$REPO_ROOT/skills/$skill/SKILL.md" 2>/dev/null; then
         echo "  [FAIL] skills/$skill/SKILL.md missing Native Task section"
         NATIVE_FAIL=$((NATIVE_FAIL + 1))
