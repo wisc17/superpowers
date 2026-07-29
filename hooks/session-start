@@ -162,7 +162,12 @@ fi
 # Read using-superpowers content with the read builtin (no cat, for the same
 # PATH-independence reason, and no $(< file) subshell). read returns 1 at end
 # of file, hence || true; the loop drops trailing newlines as $(< file) did.
-skill_md="${PLUGIN_ROOT}/skills/using-superpowers/SKILL.md"
+# Deliberately SKILL.txt, not SKILL.md: the bootstrap is injected in full here on
+# every session, so a SKILL.md would ALSO register it in the Skill tool listing —
+# paying for the name+description line in every context window to advertise a skill
+# nobody ever invokes. The .txt extension keeps plugin skill discovery from seeing
+# it while this hook still reads the content verbatim.
+skill_md="${PLUGIN_ROOT}/skills/using-superpowers/SKILL.txt"
 using_superpowers_content="Error reading using-superpowers skill"
 if [ -r "$skill_md" ]; then
   IFS= read -r -d '' using_superpowers_content < "$skill_md" || true
