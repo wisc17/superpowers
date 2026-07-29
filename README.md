@@ -42,3 +42,7 @@ Nothing routed to it — subagent-driven-development has its own Bounded Paralle
 ### Parked: receiving-code-review
 
 No skill, hook, command, doc, or test referenced it.
+
+### Parked: finishing-a-development-branch
+
+Execution reports the branch and hands control back to you, instead of opening a merge/PR/discard menu. No merging, pushing, or PR creation on your behalf — when a plan finishes, Claude just reports what it did.
