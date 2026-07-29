@@ -71,7 +71,7 @@ Key principle: TDD cycles happen WITHIN tasks, not as separate tasks. A task is 
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers-extended-cc:subagent-driven-development (recommended) or superpowers-extended-cc:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers-extended-cc:subagent-driven-development to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -187,17 +187,15 @@ AskUserQuestion:
   header: "Execution"
   options:
     - label: "Subagent-Driven (this session)"
-      description: "Runs here: fresh subagent per task, spec and quality review after every task. That review loop is what the other option gives up. Good default."
+      description: "I dispatch fresh subagent per task, review between tasks, fast iteration"
     - label: "Parallel Session (separate)"
-      description: "You open a second session in the worktree that executes the plan WITHOUT the per-task review loop, while this one stays free to answer its questions. Only worth it when this session is nearly out of context."
+      description: "I stop here; you run subagent-driven-development on this plan in a new session"
 ```
-
-**Recommend one option:** append " (Recommended)" to the better fit's label (list it first) and prepend a one-line reason to its description. Default Subagent-Driven — the review loop is the point. Recommend Parallel Session only for a nearly-exhausted session; task count alone is never the reason. On a Fable/Opus session with no frontier tasks, add to the Parallel description: the new session can run a cheaper model (e.g. Sonnet). Never reword the base labels.
 
 **If you are about to call ExitPlanMode, STOP — call AskUserQuestion instead.**
 
 <HARD-GATE>
-STOP. The user has chosen an execution method. You MUST invoke the corresponding skill using the Skill tool NOW. Do NOT implement tasks yourself — do NOT read files, make edits, or update task statuses. Your ONLY permitted action is invoking the skill below.
+STOP. The user has chosen when to execute. You MUST follow the matching branch below NOW. Do NOT implement tasks yourself — do NOT read files, make edits, or update task statuses. Your ONLY permitted action is the matching branch below.
 
 **If Subagent-Driven chosen:**
 Invoke the Skill tool: `superpowers-extended-cc:subagent-driven-development`
@@ -206,11 +204,7 @@ Invoke the Skill tool: `superpowers-extended-cc:subagent-driven-development`
 - Do NOT start working on tasks directly
 
 **If Parallel Session chosen:**
-Give the user this exact prompt to paste into a NEW session opened in the worktree, with the placeholders filled in:
-
-> Invoke superpowers-extended-cc:executing-plans for `<plan path>`. The plan author session "`<this session's title>`" is still running — on any ambiguity or design question, find it with ListAgents and ask it via SendMessage before guessing.
-
-A bare "run executing-plans" prompt loses the consultation link — the new session cannot know its author exists unless the prompt names it. On a Fable/Opus session with no frontier tasks, add one line: open it on a cheaper model (e.g. Sonnet). Keep this session alive to answer questions.
+STOP here — do NOT invoke the skill. Report the plan and `.tasks.json` paths, then guide the user to resume in a new session with: `/superpowers-extended-cc:subagent-driven-development <plan-path>`
 </HARD-GATE>
 
 ---
@@ -284,7 +278,7 @@ See `skills/shared/task-format-reference.md` → "User-Thrown Gates" for the ful
 
 **Hard rule.** Every TaskCreate `description` MUST contain, verbatim, the same **Goal / Files / Acceptance Criteria / Verify** sections you wrote into the plan `.md` for that task. Do NOT condense into a one-sentence summary. Do NOT move the AC to "see the plan doc". Do NOT omit `**Verify:**`. The description MUST end with the `json:metadata` code fence.
 
-**Why it matters.** Both execution paths (`executing-plans` and `subagent-driven-development`) read the task description via TaskGet and pass it to the implementing subagent. A one-sentence description makes the subagent improvise AC. The plan `.md` is not a fallback — TaskGet does not read it.
+**Why it matters.** `subagent-driven-development` reads the task description via TaskGet and passes it to the implementing subagent. A one-sentence description makes the subagent improvise AC. The plan `.md` is not a fallback — TaskGet does not read it.
 
 **Self-check before finishing the skill.** This is a mechanical count, not a read-and-confirm — a prose pass can be rubber-stamped, a count can't. For each of the four section headers (`**Goal:**`, `**Files:**`, `**Acceptance Criteria:**`, `**Verify:**`), run `grep -c` over `<plan>.tasks.json`:
 
@@ -388,7 +382,7 @@ Both the plan `.md` and `.tasks.json` must be co-located in `docs/superpowers/pl
 
 Any new session can resume by running:
 ```
-/superpowers-extended-cc:executing-plans <plan-path>
+/superpowers-extended-cc:subagent-driven-development <plan-path>
 ```
 
 The skill reads the `.tasks.json` file and continues from where it left off.

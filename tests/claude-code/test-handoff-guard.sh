@@ -164,7 +164,7 @@ inp = {
             'header': 'Execution',
             'options': [
                 {'label': 'Subagent-Driven (this session)', 'description': 'I dispatch fresh subagent per task, review between tasks, fast iteration'},
-                {'label': 'Parallel Session (separate)', 'description': 'Open new session in worktree with executing-plans, batch execution with checkpoints'}
+                {'label': 'Parallel Session (separate)', 'description': 'I stop here; you run subagent-driven-development on this plan in a new session'}
             ]
         }]
     },
@@ -356,7 +356,7 @@ run_hook "$INPUT" >/dev/null || true
 assert_stderr_contains "required YAML header" "header: \"Execution\""
 assert_stderr_contains "required question text" "How would you like to execute it?"
 assert_stderr_contains "subagent description in YAML" "fresh subagent per task"
-assert_stderr_contains "parallel description in YAML" "executing-plans"
+assert_stderr_contains "parallel description in YAML" "you run subagent-driven-development"
 assert_stderr_contains "option 1 instruction" "Re-issue AskUserQuestion with exactly that structure"
 assert_stderr_contains "option 2 instruction" "CLARIFICATION"
 assert_stderr_contains "option 3 instruction" "SUPERPOWERS_ROUTING_GUARD=0"

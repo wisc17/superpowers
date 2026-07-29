@@ -52,3 +52,7 @@ Execution reports the branch and hands control back to you, instead of opening a
 Only ever reachable through the opt-in user-gate re-validation hook. With that hook unregistered it served a flow that never fires. `/gate-check` removed with it.
 
 Also drops the background check that asked for permission and nudged me to enable an enforcement hook I don't use.
+
+### Parked: executing-plans
+
+The single-agent fallback flow — the agent implements each task itself, no per-task subagent, no two-stage review. This fork always routes to subagent-driven-development. The Execution Handoff still asks how to execute; "Parallel Session" now means Claude stops there so you can resume with subagent-driven-development in a session of your choosing. `/execute-plan` removed with it.
