@@ -26,3 +26,11 @@ Brainstorming writes the spec as an untracked working file instead of committing
 ### My selected model is always respected
 
 Subagents never get silently downgraded to a cheaper/faster model to save cost.
+
+### Parked: using-superpowers
+
+Skills serving flows this fork doesn't run are **parked**: `SKILL.md` is renamed to `SKILL.txt`, which drops the skill out of discovery so it no longer costs a line in every context window. Nothing is deleted; renaming the file back re-enables it. This fork runs one execution path — `writing-plans` → `subagent-driven-development` — and leaves git to you.
+
+using-superpowers itself stays fully active: the SessionStart hook injects its complete text every session. Parking only stops it being *double*-registered as an invocable skill.
+
+Deliberately **not** parked: **requesting-code-review**. Subagent-driven-development dispatches the final whole-branch review straight from its `code-reviewer.md` template by relative path, so the skill and that file both stay live.

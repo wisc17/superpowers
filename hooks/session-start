@@ -102,8 +102,13 @@ if [ -f "$workflow_file" ]; then
     fi
 fi
 
-# Read using-superpowers content
-using_superpowers_content=$(cat "${PLUGIN_ROOT}/skills/using-superpowers/SKILL.md" 2>&1 || echo "Error reading using-superpowers skill")
+# Read using-superpowers content.
+# Deliberately SKILL.txt, not SKILL.md: the bootstrap is injected in full here on
+# every session, so a SKILL.md would ALSO register it in the Skill tool listing —
+# paying for the name+description line in every context window to advertise a skill
+# nobody ever invokes. The .txt extension keeps plugin skill discovery from seeing
+# it while this hook still reads the content verbatim.
+using_superpowers_content=$(cat "${PLUGIN_ROOT}/skills/using-superpowers/SKILL.txt" 2>&1 || echo "Error reading using-superpowers skill")
 
 # Escape string for JSON embedding using bash parameter substitution.
 # Each ${s//old/new} is a single C-level pass - orders of magnitude
