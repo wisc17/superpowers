@@ -26,8 +26,8 @@ Adjudicate any residual findings as in the fix loop's breaker
 (references/fix-loop.md): park with rulings, or rule on the load-bearing
 ones and ledger what you decided. Only the four things that stop a running
 plan (top of SKILL.md) stop you here. There is no second fix wave —
-residual load-bearing findings surface to your human partner when
-finishing-a-development-branch presents the options.
+residual load-bearing findings surface to your human partner in the
+completion report.
 
 ### Finish
 
@@ -45,4 +45,6 @@ delete this plan's workspace (`rm -rf <workspace>`) — the git history is
 the record now. Sibling directories belong to other plans; leave them
 alone.
 
-Use superpowers-extended-cc:finishing-a-development-branch.
+Report what was implemented and the current branch name. Hand control back
+to the user for integration. Do NOT merge, push, create PRs, or clean up —
+the user manages git.

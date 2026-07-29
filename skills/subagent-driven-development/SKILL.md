@@ -75,7 +75,7 @@ digraph process {
     "More tasks remain?" [shape=diamond];
     "Final review and finish: read references/final-review.md" [shape=box];
     "Final review clean: delete this plan's workspace" [shape=box];
-    "Use superpowers-extended-cc:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
+    "Report completion and hand back to user" [shape=box style=filled fillcolor=lightgreen];
 
     "Setup: worktree, ledger check, read plan, pre-flight review" -> "Dispatch implementer subagent (./implementer-prompt.md)";
     "Dispatch implementer subagent (./implementer-prompt.md)" -> "Implementer asks questions?";
@@ -91,7 +91,7 @@ digraph process {
     "More tasks remain?" -> "Dispatch implementer subagent (./implementer-prompt.md)" [label="yes"];
     "More tasks remain?" -> "Final review and finish: read references/final-review.md" [label="no"];
     "Final review and finish: read references/final-review.md" -> "Final review clean: delete this plan's workspace";
-    "Final review clean: delete this plan's workspace" -> "Use superpowers-extended-cc:finishing-a-development-branch";
+    "Final review clean: delete this plan's workspace" -> "Report completion and hand back to user";
 }
 ```
 

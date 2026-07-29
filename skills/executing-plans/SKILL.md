@@ -93,7 +93,7 @@ digraph process {
     "Final whole-branch review (fresh reviewer)" [shape=box];
     "Re-grade, then: Critical/Important → ONE fix pass, each fix RED→GREEN + green suite; Minor → ledger" [shape=box];
     "Final review clean: delete this plan's workspace" [shape=box];
-    "Use superpowers-extended-cc:finishing-a-development-branch" [shape=box style=filled fillcolor=lightgreen];
+    "Report completion and hand back to user" [shape=box style=filled fillcolor=lightgreen];
 
     "Setup: tasks, worktree, workspace + ledger, read plan + spec, pre-flight scan" -> "task-start: brief + BASE; read the brief; TaskUpdate in_progress";
     "task-start: brief + BASE; read the brief; TaskUpdate in_progress" -> "Work the steps in order: TDD, run every verification, read every output";
@@ -109,7 +109,7 @@ digraph process {
     "More tasks remain?" -> "Final whole-branch review (fresh reviewer)" [label="no"];
     "Final whole-branch review (fresh reviewer)" -> "Re-grade, then: Critical/Important → ONE fix pass, each fix RED→GREEN + green suite; Minor → ledger";
     "Re-grade, then: Critical/Important → ONE fix pass, each fix RED→GREEN + green suite; Minor → ledger" -> "Final review clean: delete this plan's workspace";
-    "Final review clean: delete this plan's workspace" -> "Use superpowers-extended-cc:finishing-a-development-branch";
+    "Final review clean: delete this plan's workspace" -> "Report completion and hand back to user";
 }
 ```
 
@@ -355,9 +355,9 @@ When the final review is clean and its fixes are committed, delete this
 plan's workspace directory — the git history is the record now. Sibling
 directories belong to other plans; leave them alone.
 
-Announce: "I'm using the finishing-a-development-branch skill to complete this work."
-
-**REQUIRED SUB-SKILL:** Use superpowers-extended-cc:finishing-a-development-branch.
+Report what was implemented and the current branch name. Hand control back
+to the user for integration. Do NOT merge, push, create PRs, or clean up —
+the user manages git.
 
 ## Common Rationalizations
 
