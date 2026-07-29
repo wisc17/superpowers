@@ -56,3 +56,7 @@ Also drops the background check that asked for permission and nudged me to enabl
 ### Parked: executing-plans
 
 The single-agent fallback flow — the agent implements each task itself, no per-task subagent, no two-stage review. This fork always routes to subagent-driven-development. The Execution Handoff still asks how to execute; "Parallel Session" now means Claude stops there so you can resume with subagent-driven-development in a session of your choosing. `/execute-plan` removed with it.
+
+### Parked: using-git-worktrees
+
+You manage the git layout. Execution only checks it isn't on main/master and asks before starting there.
