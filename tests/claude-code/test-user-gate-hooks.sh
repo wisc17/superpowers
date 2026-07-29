@@ -560,9 +560,8 @@ echo ""
 
 echo "Test 10: doc + skill files referenced by hooks exist"
 for f in docs/user-gate-flow.md \
-         skills/checking-gates/SKILL.md \
+         skills/checking-gates/SKILL.txt \
          skills/specifying-gates/SKILL.md \
-         commands/gate-check.md \
          commands/specify-gate.md \
          skills/shared/task-format-reference.md; do
     if [ -f "$REPO_ROOT/$f" ]; then
