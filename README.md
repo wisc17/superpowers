@@ -60,3 +60,7 @@ The single-agent fallback flow — the agent implements each task itself, no per
 ### Parked: using-git-worktrees
 
 You manage the git layout. Execution only checks it isn't on main/master and asks before starting there.
+
+### Wanted, blocked on platform: the architect pattern
+
+Upstream v6.4.0 added a consult hop to the Parallel Session handoff — the executing session messages the plan-writing session (`ListAgents` + `SendMessage`) to settle design questions instead of guessing, so the architect keeps its planning context while executors work with a focused one. **We want this.** It is dropped here only because Claude Code offers cross-session messaging on macOS, Linux, and WSL 2 but [not on native Windows](https://code.claude.com/docs/en/cross-session-messaging#availability) — verified on 2.1.226, where `ListAgents` reports itself disabled for the session and its subagents alike. Nothing in the changelog or issue tracker commits to a Windows port as of 2026-08-11. If native Windows support lands (or this fork moves to WSL 2), revisit: retarget the Parallel Session branch to the consult flow and re-add the consult instructions to the implementer dispatch. Do not treat a future upstream merge that reintroduces this text as an unwanted change to be re-dropped — check the platform first.
