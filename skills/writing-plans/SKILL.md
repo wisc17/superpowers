@@ -15,7 +15,7 @@ Write implementation plans for an engineer who has not seen this codebase or thi
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** If working in an isolated worktree, it should have been created via the `superpowers-extended-cc:using-git-worktrees` skill at execution time.
+**Context:** Do not plan any git isolation steps (branch creation, worktrees). Your human partner manages the git layout; the plan covers the work, not the workspace.
 
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
@@ -237,7 +237,7 @@ Invoke the Skill tool: `superpowers-extended-cc:subagent-driven-development`
 Output exactly this, placeholders filled in. The `>` quote is part of the output. Print nothing else.
 
 ```markdown
-Paste this into a NEW session opened in the worktree:
+Paste this into a NEW session opened in this repository:
 
 > /superpowers-extended-cc:subagent-driven-development <plan path> - the plan author session "<this session's title>" is still running; on any ambiguity or design question, find it with ListAgents and ask it via SendMessage before guessing.
 ```

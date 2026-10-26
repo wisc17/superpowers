@@ -88,14 +88,14 @@ digraph process {
         "task-done: run tests, ledger the result; TaskUpdate completed + sync .tasks.json" [shape=box];
     }
 
-    "Setup: tasks, worktree, workspace + ledger, read plan + spec, pre-flight scan" [shape=box];
+    "Setup: tasks, branch check, workspace + ledger, read plan + spec, pre-flight scan" [shape=box];
     "More tasks remain?" [shape=diamond];
     "Final whole-branch review (fresh reviewer)" [shape=box];
     "Re-grade, then: Critical/Important → ONE fix pass, each fix RED→GREEN + green suite; Minor → ledger" [shape=box];
     "Final review clean: delete this plan's workspace" [shape=box];
     "Report completion and hand back to user" [shape=box style=filled fillcolor=lightgreen];
 
-    "Setup: tasks, worktree, workspace + ledger, read plan + spec, pre-flight scan" -> "task-start: brief + BASE; read the brief; TaskUpdate in_progress";
+    "Setup: tasks, branch check, workspace + ledger, read plan + spec, pre-flight scan" -> "task-start: brief + BASE; read the brief; TaskUpdate in_progress";
     "task-start: brief + BASE; read the brief; TaskUpdate in_progress" -> "Work the steps in order: TDD, run every verification, read every output";
     "Work the steps in order: TDD, run every verification, read every output" -> "Step output matches plan's Expected?";
     "Step output matches plan's Expected?" -> "Plan wrong? Ask author or rule, and ledger. Code wrong? systematic-debugging" [label="no"];
@@ -128,16 +128,13 @@ digraph process {
 
 Update `.tasks.json` after every task status change.
 
-### Verify Workspace (Worktree Check)
+### Branch Check
 
-Ensure the work happens in an isolated workspace. Before calling `using-git-worktrees`, check if a worktree already exists:
-
-1. Run `git worktree list` to see all existing worktrees
-2. If a worktree for the plan's branch already exists: **cd into it — do NOT create a new one**
-3. If on main/master with no worktree: **REQUIRED SUB-SKILL:** Use `superpowers-extended-cc:using-git-worktrees` to create one
-
-Never start implementation on a main/master branch without your human
-partner's explicit consent.
+Check what branch you are on before Task 1. Never start implementation on
+a main/master branch without your human partner's explicit consent — ask,
+and let them decide whether to branch. Do not create branches, worktrees,
+or other isolation on your own initiative; your human partner manages the
+git layout.
 
 ### Workspace and Ledger
 

@@ -52,3 +52,7 @@ Execution reports the branch and hands control back to you, instead of opening a
 Only ever reachable through the opt-in user-gate re-validation hook. With that hook unregistered it served a flow that never fires. `/gate-check` removed with it.
 
 Also drops the background check that asked for permission and nudged me to enable an enforcement hook I don't use.
+
+### Parked: using-git-worktrees
+
+You manage the git layout. Execution only checks it isn't on main/master and asks before starting there.
